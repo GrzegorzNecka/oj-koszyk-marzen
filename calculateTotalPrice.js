@@ -1,39 +1,35 @@
-// import checkIsEmpty from "./checkIsEmpty";
-
-
 function checkIsEmpty(products) {
   const isEmpty = products.findIndex(product => product.isOrdered);
   return isEmpty === -1 ? true : false;
 }
 
-export default checkIsEmpty;
-
-
-function calculateTotalPrice(products, container) {
+function calculateTotalPrice(products, productsContainer) {
   const isEmpty = checkIsEmpty(products);
-  const priceTable = [];
+  const priceArray = [];
   let totalPrice;
 
   if (isEmpty) {
     const div = document.createElement("div");
-    div.innerHTML = `
-    <h2>Koszyk jest pusty</h2>`;
-    container.appendChild(div);
+    div.innerHTML = `<h2>Koszyk jest pusty</h2>`;
+    productsContainer.appendChild(div);
+
     return (totalPrice = 0);
   }
 
   products.forEach(product => {
     const { price, multiply, isOrdered } = product;
 
-    if (isOrdered) priceTable.push(price * multiply);
+    if (isOrdered) {
+      priceArray.push(price * multiply);
+    }
   });
 
-  if (priceTable.length > 1) {
-    totalPrice = priceTable.reduce((prev, current) => {
+  if (priceArray.length > 1) {
+    totalPrice = priceArray.reduce((prev, current) => {
       return prev + current;
     }, 0);
   } else {
-    totalPrice = priceTable[0];
+    totalPrice = priceArray[0];
   }
 
   return totalPrice;
