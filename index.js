@@ -41,11 +41,11 @@ closeButtons.forEach(button => button.addEventListener("click", e => deleteItem(
 
 //----------------------
 
-
 function handleChangeCount(e) {
 
   const element = findParent(e.target);
   const prodID = parseInt(element.id);
+
 
   products.forEach(product => {
     if (product.id === prodID) { product.multiply = e.target.value; }
@@ -56,8 +56,6 @@ function handleChangeCount(e) {
 }
 
 //----------------------
-
-
 
 function deleteItem(e) {
 
