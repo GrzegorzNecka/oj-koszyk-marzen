@@ -39,6 +39,7 @@ const multiplyInputs = document.querySelectorAll(".js-input");
 multiplyInputs.forEach(input => input.addEventListener("change", e => handleChange(e)));
 
 function handleChange(e) {
+
   const element = findParent(e.target);
   const prodID = parseInt(element.id);
 
@@ -46,7 +47,8 @@ function handleChange(e) {
     if (product.id === prodID) { product.multiply = e.target.value; }
   });
 
-  showSummary(summaryContainer, products, productsContainer);
+  showSummary(productsContainer, products, summaryContainer);
+  
 }
 
 //----------------------
@@ -54,6 +56,7 @@ function handleChange(e) {
 
 
 function deleteItem(e) {
+
   const elementToDelete = findParent(e.target);
   const prodID = parseInt(elementToDelete.id);
 
@@ -63,5 +66,7 @@ function deleteItem(e) {
   
   productsContainer.removeChild(elementToDelete);
 
-  showSummary(summaryContainer, products, productsContainer);
+  showSummary(productsContainer, products, summaryContainer);
+
 }
+
