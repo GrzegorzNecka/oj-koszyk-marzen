@@ -1,11 +1,15 @@
 import calculateTotalPrice from "./calculateTotalPrice";
 import showSummary from "./showSummary";
 
-function drawContent(container, products, summaryContainer) {
+function drawContent(productsContainer, products, summaryContainer) {
   
-  products.forEach(product => {
+  products.forEach( ( product ) => {
+
     const { name, description, price, icon } = product;
-    const productContainer = document.createElement("div");
+    const productItem = document.createElement("div");
+    
+    productItem.id = product.id;
+
     productContainer.classList.add(
       "flex",
       "items-center",
@@ -14,10 +18,8 @@ function drawContent(container, products, summaryContainer) {
       "js-container"
     );
 
-    productContainer.id = product.id;
-
-    productContainer.innerHTML = `
-       <div  class="flex-auto">
+    productItem.innerHTML = `
+       <div class="flex-auto">
           <img class="w-10 rounded-sm overflow-hidden" src="${icon}" alt="">
         </div>
 
@@ -33,10 +35,11 @@ function drawContent(container, products, summaryContainer) {
         </div>
   `;
 
-    container.appendChild(productContainer);
+    productsContainer.appendChild(productItem);
+    
   });
 
-  showSummary(summaryContainer, products, container);
+  showSummary(summaryContainer, products, productsContainer);
 }
 
 export default drawContent;
