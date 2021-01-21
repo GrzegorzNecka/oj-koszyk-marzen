@@ -36,10 +36,10 @@ function drawContent(productsContainer, products, summaryContainer) {
   `;
 
     productsContainer.appendChild(productItem);
-    
+
   });
 
-  showSummary(summaryContainer, products, productsContainer);
+  showSummary(productsContainer, products, summaryContainer);
 }
 
 export default drawContent;

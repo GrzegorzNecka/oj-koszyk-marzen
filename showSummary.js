@@ -1,10 +1,9 @@
 import calculateTotalPrice from "./calculateTotalPrice";
 
-function showSummary(summaryContainer, products, container) {
-  summaryContainer.textContent = `${calculateTotalPrice(
-    products,
-    container
-  )} zł`;
+function showSummary(productsContainer, products, summaryContainer) {
+
+  summaryContainer.textContent = `${ calculateTotalPrice( products, productsContainer ) } zł`;
+
 }
 
 export default showSummary;
