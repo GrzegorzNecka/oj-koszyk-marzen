@@ -1,4 +1,7 @@
-// Import stylesheets
+import drawContent from "./drawContent";
+import findParent from "./findParent";
+import showSummary from "./showSummary";
+
 import "./style.css";
 
 const productsContainer = document.querySelector(".flex.flex-col");
@@ -26,6 +29,6 @@ const products = [
 
 const summaryContainer = document.querySelector("span.font-bold");
 
-// drawContent(productsContainer, products, summaryContainer);
+drawContent(productsContainer, products, summaryContainer);
 
 //----------------------
