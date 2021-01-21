@@ -28,9 +28,9 @@ const products = [
 ];
 
 const summaryContainer = document.querySelector("span.font-bold");
-const closeButtons = document.querySelectorAll(".js-button");
-
 drawContent(productsContainer, products, summaryContainer);
+
+const closeButtons = document.querySelectorAll(".js-button");
 closeButtons.forEach(button => button.addEventListener("click", e => deleteItem(e)));
 
 //----------------------
