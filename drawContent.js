@@ -1,4 +1,3 @@
-import calculateTotalPrice from "./calculateTotalPrice";
 import showSummary from "./showSummary";
 
 function drawContent(productsContainer, products, summaryContainer) {
