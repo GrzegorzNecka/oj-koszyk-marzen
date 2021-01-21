@@ -36,8 +36,12 @@ drawContent(productsContainer, products, summaryContainer);
 const closeButtons = document.querySelectorAll(".js-button");
 const multiplyInputs = document.querySelectorAll(".js-input");
 
-closeButtons.forEach( button => button.addEventListener("click", e => deleteItem(e)) );
-multiplyInputs.forEach( input => input.addEventListener("change", e => handleChange(e)) );
+closeButtons.forEach(button =>
+  button.addEventListener("click", e => deleteItem(e))
+);
+multiplyInputs.forEach(input =>
+  input.addEventListener("change", e => handleChange(e))
+);
 
 function handleChange(e) {
   const element = findParent(e.target);
@@ -48,5 +52,5 @@ function handleChange(e) {
     }
   });
 
-  showSummary(summaryContainer, products, container);
+  showSummary(summaryContainer, products, summaryContainer);
 }
