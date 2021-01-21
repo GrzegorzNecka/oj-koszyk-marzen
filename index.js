@@ -28,8 +28,10 @@ const products = [
 ];
 
 const summaryContainer = document.querySelector("span.font-bold");
+const closeButtons = document.querySelectorAll(".js-button");
 
 drawContent(productsContainer, products, summaryContainer);
+closeButtons.forEach(button => button.addEventListener("click", e => deleteItem(e)));
 
 //----------------------
 
@@ -44,10 +46,22 @@ function handleChange(e) {
     if (product.id === prodID) { product.multiply = e.target.value; }
   });
 
-  showSummary(summaryContainer, products, summaryContainer);
+  showSummary(summaryContainer, products, productsContainer);
 }
 
 //----------------------
 
-const closeButtons = document.querySelectorAll(".js-button");
-closeButtons.forEach(button => button.addEventListener("click", e => deleteItem(e)));
+
+
+function deleteItem(e) {
+  const elementToDelete = findParent(e.target);
+  const prodID = parseInt(elementToDelete.id);
+
+  products.forEach(product => {
+    if (product.id === prodID) product.isOrdered = false;
+  });
+  
+  productsContainer.removeChild(elementToDelete);
+
+  showSummary(summaryContainer, products, productsContainer);
+}
