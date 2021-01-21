@@ -9,7 +9,7 @@ function drawContent(productsContainer, products, summaryContainer) {
     
     productItem.id = product.id;
 
-    productsContainer.classList.add(
+     productItem.classList.add(
       "flex",
       "items-center",
       "border-b",
