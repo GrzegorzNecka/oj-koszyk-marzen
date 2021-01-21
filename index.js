@@ -27,18 +27,22 @@ const products = [
   }
 ];
 
+//----------------------
+
 const summaryContainer = document.querySelector("span.font-bold");
 drawContent(productsContainer, products, summaryContainer);
+
+
+const multiplyInputs = document.querySelectorAll(".js-input");
+multiplyInputs.forEach(input => input.addEventListener("change", e => handleChangeCount(e)));
 
 const closeButtons = document.querySelectorAll(".js-button");
 closeButtons.forEach(button => button.addEventListener("click", e => deleteItem(e)));
 
 //----------------------
 
-const multiplyInputs = document.querySelectorAll(".js-input");
-multiplyInputs.forEach(input => input.addEventListener("change", e => handleChange(e)));
 
-function handleChange(e) {
+function handleChangeCount(e) {
 
   const element = findParent(e.target);
   const prodID = parseInt(element.id);
